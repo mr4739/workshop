@@ -1,0 +1,188 @@
+html {
+    --myColor: white;
+}
+
+body{
+    background: radial-gradient(rgb(64, 102, 151), rgb(39, 51, 105));
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+#beans{
+    color: var(--myColor);
+}
+
+#viewer{
+    position: fixed;
+    height: 28em;
+    width: 28em;
+    background: rgb(30, 38, 78);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#moon{
+    position: absolute;
+    height: 8em;
+    width: 8em;
+    border-radius: 50%;
+    background-color: var(--myColor);
+}
+
+#moon-cover{
+    position: absolute;
+    height: 8em;
+    width: 8em;
+    left: -40%;
+    top: 0;
+    border-radius: 50%;
+    background-color: rgb(30, 38, 78);
+}
+
+.cloud{
+    position: relative;
+    height: 3em;
+    width: 8em;
+    margin: 2em;
+    opacity: 0.8;
+    border-radius: 1.5em;
+    background-color: var(--myColor);
+    animation: leftToRight 5s linear infinite;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    background-color: var(--myColor);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cloud:before {
+    height: 4em;
+    width: 4em;
+    top: -2em;
+    left: 1em;
+}
+
+.cloud:after{
+    height: 3em;
+    width: 3em;
+    top: -1em;
+    right: 1em;
+}
+
+.centered{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.big {
+    transform: scale(1.2);
+    animation: leftToRight 7s linear infinite;
+}
+
+.small {
+    transform: scale(0.8);
+    animation: leftToRight 10s linear infinite;
+}
+
+#sun{
+    top: 0;
+    left: 100%;
+    position: absolute;
+    height: 8em;
+    width: 8em;
+    border-radius:50%;
+    background-color: rgb(255, 255, 124);
+    z-index: -1;
+}
+
+#viewer:hover > #moon{
+    top: 0;
+    left: 0;
+}
+
+#viewer:hover > #sun{
+    top: 50%;
+    left: 50%;
+}
+
+#viewer:hover, #viewer:hover #moon-cover{
+    background-color: rgb(87, 215, 224);
+}
+
+#bird{
+    position: absolute;
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    background-color: rgb(243, 88, 88);
+    animation: leftToRight 5s linear infinite;
+}
+
+#bird:before, #bird:after{
+    content: '';
+    position: absolute;
+}
+
+#bird:before{
+    width: 0;
+    height: 0;
+    border-bottom: 1em solid rgb(243, 167, 96);
+    border-right: 1em solid transparent;
+    top: 1.4em;
+    right: -0.8em;
+}
+
+#bird:after{
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: rgb(30, 38, 78);
+    top: 1em;
+    right: 1em;
+}
+
+#bird-wing {
+    position: absolute;
+    height: 1.5em;
+    width: 3em;
+    background: rgb(177, 57, 57);
+    border-radius: 0 50% 50%;
+    left: -0.8em;
+    animation: flapWings 1s linear infinite;
+}
+
+* {
+    transition: all 1s;
+}
+
+@keyframes leftToRight{
+    from{
+        margin-left: -100%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@-webkit-keyframes leftToRight{
+    from{
+        margin-left: -100%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@keyframes flapWings{
+    0%{
+        bottom: 1em;
+    }
+    60%{
+        bottom: 0.5em;
+    }
+    100%{
+        bottom: 1em;
+    }
+}
